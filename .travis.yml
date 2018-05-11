@@ -16,7 +16,7 @@ after_success:
 # Zip directory on repo master
 # Create tag with version in latest commit
 before_deploy:
-  - wget -c https://github.com/opendatasoft/ods-widgets/archive/master.zip -O ods-widgets.zip
+  - zip -r ods-widgets.zip dist/
   - git tag "$(git log -n 1 --pretty=oneline origin/master | sed -n -e 's/^.*Release //p')"
 # Push new version in master with tag release
 deploy:
@@ -26,7 +26,7 @@ deploy:
   file: ods-widgets.zip
   skip_cleanup: true
   on:
-    branch: master
+    branch: feature/13169_refactor_ods-widgets_build_system
 # Push new version on server prod
 after_deploy:
   - echo "New release"
