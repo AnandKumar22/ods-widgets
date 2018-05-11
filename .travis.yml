@@ -1,9 +1,10 @@
 language: node_js
 env:
   global:
-    - secure: ""
-    - secure: ""
-    - DEPLOY_PATH=
+    # - secure: ""
+    # - secure: ""
+    - secure: "CQiGk+MuQkMcvn/jIU8E4Dk26iBx6e8FBfwCqjQ+wUAGvaJiopx9mxUZddPvaMSp4Gb7lSgAclmPxtxwvNlgN2F9Tp150TBoCTYmVop2ZYAyoxZedZHh99eNgqZFVP0pyIZrvVXqc2aZDMYygdINAmTKRNYkgpFLXav1IeiTP4U="
+    # - DEPLOY_PATH=
 node_js:
   - 8
 before_script:
@@ -18,16 +19,15 @@ before_deploy:
   - wget -c https://github.com/opendatasoft/ods-widgets/archive/master.zip -O ods-widgets.zip
   - git tag "$(git log -n 1 --pretty=oneline origin/master | sed -n -e 's/^.*Release //p')"
 # Push new version in master with tag release
-# deploy:
-#   provider: releases
-#   api_key:
-#     secure:
-#   file: ods-widgets.zip
-#   skip_cleanup: true
-#   on:
-#     branch: master
+deploy:
+  provider: releases
+  api_key:
+    secure: $API_KEY_GITHUB
+  file: ods-widgets.zip
+  skip_cleanup: true
+  on:
+    branch: test_release
 # # Push new version on server prod
 after_deploy:
-  - echo "New release with tag ?"
-  - 'test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "feature/13169_refactor_ods-widgets_build_system" && echo "Commit / Grunt - DONE"'
-  - echo $HOME
+  - echo "New release"
+  # - 'test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "feature/13169_refactor_ods-widgets_build_system" && echo "Commit / Grunt - DONE"'
