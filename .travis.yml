@@ -3,7 +3,7 @@ env:
   global:
     # - secure: ""
     # - secure: ""
-    - secure: "AOTn7Q3pWEgrDB6TXJ7vY5jgHViD3cmFKEu5JPHbj5j13zqZtob/I2HSFbbf3S8Domrs8Jt32j9MgloEHMIhIXTh2CA2tvhrTWeIbAA0JKvVO6dKbnYKZpuROrFrI5LpD/9iOqyIubmwtdDHGEg6TvRGHB+MpxklrgkruFjU/UA="
+    - secure: "Tye6/rssYfBQp+euo7fnSs7S+/hmCkBT1u0CWzW5R0mHRRpZf5MQRonqHwXrypFtHoZuLlqmJC7woy5T+yuyNZoGNL5r19kSlOWCcFDvDCZD/qghq9DoKN+u9AAoIu7phSNa0ve86NZM91hvad8evkRoIaHM2umjkx8fSmMRjkY="
     # - DEPLOY_PATH=
 node_js:
   - 8
@@ -17,7 +17,7 @@ after_success:
 # Create tag with version in latest commit
 before_deploy:
   - wget -c https://github.com/opendatasoft/ods-widgets/archive/master.zip -O ods-widgets.zip
-  - git tag "$(git log -n 1 --pretty=oneline origin/test_release | sed -n -e 's/^.*Release //p')"
+  - git tag "$(git log -n 1 --pretty=oneline origin/master | sed -n -e 's/^.*Release //p')"
 # Push new version in master with tag release
 deploy:
   provider: releases
@@ -26,8 +26,8 @@ deploy:
   file: ods-widgets.zip
   skip_cleanup: true
   on:
-    branch: test_release
-# # Push new version on server prod
+    branch: master
+# Push new version on server prod
 after_deploy:
   - echo "New release"
   # - 'test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "feature/13169_refactor_ods-widgets_build_system" && echo "Commit / Grunt - DONE"'
