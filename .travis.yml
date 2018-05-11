@@ -1,0 +1,14 @@
+language: node_js
+env:
+  global:
+    - secure: ""
+    - secure: ""
+    - DEPLOY_PATH=
+node_js:
+  - 8
+before_script:
+  - npm install grunt-cli -g
+script:
+  - grunt
+after_success:
+  - 'test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "feature/13169_refactor_ods-widgets_build_system" && echo "Commit / Grunt - DONE"'
