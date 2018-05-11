@@ -13,12 +13,9 @@ script:
   - grunt
 after_success:
   - echo "Grunt Success"
-# Zip directory on repo master
-# Create tag with version in latest commit
 before_deploy:
   - zip -r ods-widgets.zip dist/
   - git tag "$(git log -n 1 --pretty=oneline origin/master | sed -n -e 's/^.*Release //p')"
-# Push new version in master with tag release
 deploy:
   provider: releases
   api_key:
@@ -26,8 +23,7 @@ deploy:
   file: ods-widgets.zip
   skip_cleanup: true
   on:
-    branch: feature/13169_refactor_ods-widgets_build_system
-# Push new version on server prod
+    branch: master
 after_deploy:
   - echo "New release"
-  # - 'test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "feature/13169_refactor_ods-widgets_build_system" && echo "Commit / Grunt - DONE"'
+  # - 'test $TRAVIS_PULL_REQUEST == "false" && echo "Commit / Grunt - DONE"'
