@@ -11,4 +11,23 @@ before_script:
 script:
   - grunt
 after_success:
+  - echo "Grunt Success"
+# Zip directory on repo master
+# Create tag with version in latest commit
+before_deploy:
+  - wget -c https://github.com/opendatasoft/ods-widgets/archive/master.zip -O ods-widgets.zip
+  - git tag "$(git log -n 1 --pretty=oneline origin/master | sed -n -e 's/^.*Release //p')"
+# Push new version in master with tag release
+# deploy:
+#   provider: releases
+#   api_key:
+#     secure:
+#   file: ods-widgets.zip
+#   skip_cleanup: true
+#   on:
+#     branch: master
+# # Push new version on server prod
+after_deploy:
+  - echo "New release with tag ?"
   - 'test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "feature/13169_refactor_ods-widgets_build_system" && echo "Commit / Grunt - DONE"'
+  - echo $HOME
