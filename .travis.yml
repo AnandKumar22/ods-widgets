@@ -17,7 +17,7 @@ after_success:
 # Create tag with version in latest commit
 before_deploy:
   - wget -c https://github.com/opendatasoft/ods-widgets/archive/master.zip -O ods-widgets.zip
-  - git tag "$(git log -n 1 --pretty=oneline origin/master | sed -n -e 's/^.*Release //p')"
+  - git tag "$(git log -n 1 --pretty=oneline origin/test_release | sed -n -e 's/^.*Release //p')"
 # Push new version in master with tag release
 deploy:
   provider: releases
