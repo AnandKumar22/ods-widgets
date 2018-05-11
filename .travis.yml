@@ -3,7 +3,7 @@ env:
   global:
     # - secure: ""
     # - secure: ""
-    - secure: "CQiGk+MuQkMcvn/jIU8E4Dk26iBx6e8FBfwCqjQ+wUAGvaJiopx9mxUZddPvaMSp4Gb7lSgAclmPxtxwvNlgN2F9Tp150TBoCTYmVop2ZYAyoxZedZHh99eNgqZFVP0pyIZrvVXqc2aZDMYygdINAmTKRNYkgpFLXav1IeiTP4U="
+    - secure: "AOTn7Q3pWEgrDB6TXJ7vY5jgHViD3cmFKEu5JPHbj5j13zqZtob/I2HSFbbf3S8Domrs8Jt32j9MgloEHMIhIXTh2CA2tvhrTWeIbAA0JKvVO6dKbnYKZpuROrFrI5LpD/9iOqyIubmwtdDHGEg6TvRGHB+MpxklrgkruFjU/UA="
     # - DEPLOY_PATH=
 node_js:
   - 8
