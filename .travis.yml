@@ -15,7 +15,6 @@ after_success:
   - echo "Grunt Success"
 before_deploy:
   - zip -r ods-widgets.zip dist/
-  - git tag "$(git log -n 1 --pretty=oneline origin/master | sed -n -e 's/^.*Release //p')"
 deploy:
   provider: releases
   api_key:
@@ -23,7 +22,8 @@ deploy:
   file: ods-widgets.zip
   skip_cleanup: true
   on:
-    branch: master
+    branch: feature/13169_refactor_ods-widgets_build_system
+    tags: true
 after_deploy:
-  - echo "New release"
+  - echo "New release DONE"
   # - 'test $TRAVIS_PULL_REQUEST == "false" && echo "Commit / Grunt - DONE"'
