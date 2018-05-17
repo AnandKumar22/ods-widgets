@@ -4,7 +4,7 @@ env:
   - secure: "hSa5oY1J3uiaQYPq1jHUpsFtAB40YtcdCN8so/KOq+KEv37DuykQul3g8RsTvl7O3VMMBIelT7K/HPTWJTsTSrjuTZlc4jBG25uEHPo0CN1vnpiilkm//ye7Tuaknoup5nmIjLsvyUJW0de5TU0yXQuCGqzR00tatjOYbdTFbVU="
   - secure: "RPVSmD2E8omJDM1ORwnDWJiTOh25n+1sKh8Hn82yLWfpn6Oso+1m2j4JnHS8kvDbMCvRTgTdwPraz5eqAUcZzURmWj8qxYnEWapWErPoNh9UNQ80zE8TrWPIm/LF0i5VaBvihTRoOtL/y3IwfQGdA2W1KQ41uhyh/CRLzCWhypE="
   - secure: "Tye6/rssYfBQp+euo7fnSs7S+/hmCkBT1u0CWzW5R0mHRRpZf5MQRonqHwXrypFtHoZuLlqmJC7woy5T+yuyNZoGNL5r19kSlOWCcFDvDCZD/qghq9DoKN+u9AAoIu7phSNa0ve86NZM91hvad8evkRoIaHM2umjkx8fSmMRjkY="
-  - DEPLOY_PATH="/var/www/betahelp"
+  - DEPLOY_PATH=/var/www/betahelp/
 node_js:
   - 8
 before_script:
@@ -31,3 +31,4 @@ after_success:
   - eval "$(ssh-agent -s)"
   - ssh-add .travis.deploy
   - test $TRAVIS_PULL_REQUEST == "false" && rsync -e "ssh -o StrictHostKeyChecking=no" -az --force --delete ods-widgets/ "$DEPLOY_USER"@"$DEPLOY_IP":"$DEPLOY_PATH" 2>/dev/null
+sudo: false
