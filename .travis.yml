@@ -5,7 +5,6 @@ env:
   - secure: "nbOagqTMyLRwN5E3zNuqkuq6IMmHRFKqcWNQauSICzZ629woRhLkofqPeLI9sJNvF13GT6BWJfroE45+juKSgbs27rtRp6/cN90/r+Jv1+STInobowcqJM2HoG2bGQ08Vx/P1PYJQF8X6ai6xFmTEuOhrew95S97ZUmu1adNsq4="
   - secure: "Tye6/rssYfBQp+euo7fnSs7S+/hmCkBT1u0CWzW5R0mHRRpZf5MQRonqHwXrypFtHoZuLlqmJC7woy5T+yuyNZoGNL5r19kSlOWCcFDvDCZD/qghq9DoKN+u9AAoIu7phSNa0ve86NZM91hvad8evkRoIaHM2umjkx8fSmMRjkY="
   - DEPLOY_PATH=/var/www/betahelp/widgets/
-  - PROD=true
 node_js:
   - 8
 before_script:

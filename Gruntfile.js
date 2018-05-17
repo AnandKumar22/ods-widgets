@@ -16,11 +16,8 @@ module.exports = function(grunt) {
 
     // Condition to switch resource file (js, css) in dev or prod
     var distPath;
-    if (process.env.TRAVIS) {
-        distPath = 'https://static.opendatasoft.com/';
-    } else {
-        distPath = '../dist/';
-    }
+    if (process.env.TRAVIS) distPath = 'https://static.opendatasoft.com/';
+    else distPath = '../dist/';
 
     // Project configuration.
     grunt.initConfig({
