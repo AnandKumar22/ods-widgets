@@ -24,7 +24,7 @@ after_success:
 #   on:
 #     branch: master
 #     tags: true
-deploy:
+# deploy:
   - echo "New release done | Ready to deploy"
   - openssl aes-256-cbc -K $encrypted_9f7cba75ae55_key -iv $encrypted_9f7cba75ae55_iv -in .travis.deploy.enc -out .travis.deploy -d
   - chmod 600 .travis.deploy
