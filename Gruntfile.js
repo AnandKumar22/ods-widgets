@@ -122,11 +122,11 @@ module.exports = function(grunt) {
                     'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js',
                     'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-animate.js',
                     'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-sanitize.js',
-                    distPath + 'ods-widgets.js',
+                    distPath + 'ods-widgets.min.js',
                     '../docs-load-css.js'
                 ],
                 styles: [
-                    distPath + 'ods-widgets.css',
+                    distPath + 'ods-widgets.min.css',
                     'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
                 ],
                 template: 'src/templates/index.tmpl',
