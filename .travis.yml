@@ -4,7 +4,7 @@ env:
   - secure: "JonR5GJedv/SbYQrYAhjFBUsF02GSUq8Fuk0wQRaOY1E/aBxfqLLVp6efaYYG9YMPkklHOu+HWSwVO0X6AeKblEb+4/h8oCUC4Q4KwXTF5xznVp/Bs98hPtqMmYT3XAIe13HeV5hbV4tKMtVYpwm8h4ZVhs1eUpnNpiVgUyWRqE="
   - secure: "nbOagqTMyLRwN5E3zNuqkuq6IMmHRFKqcWNQauSICzZ629woRhLkofqPeLI9sJNvF13GT6BWJfroE45+juKSgbs27rtRp6/cN90/r+Jv1+STInobowcqJM2HoG2bGQ08Vx/P1PYJQF8X6ai6xFmTEuOhrew95S97ZUmu1adNsq4="
   - secure: "Tye6/rssYfBQp+euo7fnSs7S+/hmCkBT1u0CWzW5R0mHRRpZf5MQRonqHwXrypFtHoZuLlqmJC7woy5T+yuyNZoGNL5r19kSlOWCcFDvDCZD/qghq9DoKN+u9AAoIu7phSNa0ve86NZM91hvad8evkRoIaHM2umjkx8fSmMRjkY="
-  - DEPLOY_PATH=/var/www/betahelp/
+  - DEPLOY_PATH=/var/www/betahelp/ods-widgets/
 node_js:
   - 8
 before_script:
