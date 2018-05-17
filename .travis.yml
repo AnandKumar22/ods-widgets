@@ -30,4 +30,4 @@ after_success:
   - chmod 600 .travis.deploy
   - eval "$(ssh-agent -s)"
   - ssh-add .travis.deploy
-  - rsync -e "ssh -o StrictHostKeyChecking=no" -az --force ods-widgets/ "$DEPLOY_USER"@"$DEPLOY_IP":"$DEPLOY_PATH" 2>/dev/null
+  - rsync -avz -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --progress . "$DEPLOY_USER"@"$DEPLOY_IP":"$DEPLOY_PATH"
