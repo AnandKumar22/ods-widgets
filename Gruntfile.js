@@ -14,6 +14,14 @@ var JS_FILES = [
 
 module.exports = function(grunt) {
 
+    // Condition to switch resource file (js, css) in dev or prod
+    var distPath;
+    if (process.env.TRAVIS) {
+        distPath = 'https://static.opendatasoft.com/';
+    } else {
+        distPath = '../dist/';
+    }
+
     // Project configuration.
     grunt.initConfig({
         uglify: {
@@ -117,11 +125,11 @@ module.exports = function(grunt) {
                     'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js',
                     'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-animate.js',
                     'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-sanitize.js',
-                    '../dist/ods-widgets.js',
+                    distPath + 'ods-widgets.js',
                     '../docs-load-css.js'
                 ],
                 styles: [
-                    '../dist/ods-widgets.css',
+                    distPath + 'ods-widgets.css',
                     'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
                 ],
                 template: 'src/templates/index.tmpl',
