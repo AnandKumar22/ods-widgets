@@ -7,7 +7,7 @@ env:
   - DEPLOY_PATH=""
 node_js:
   - 8
-install:
+before_script:
   - npm install grunt-cli -g
 script:
   - grunt
