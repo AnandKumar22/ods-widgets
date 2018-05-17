@@ -1,8 +1,8 @@
 language: node_js
 env:
   global:
-  - secure: "hSa5oY1J3uiaQYPq1jHUpsFtAB40YtcdCN8so/KOq+KEv37DuykQul3g8RsTvl7O3VMMBIelT7K/HPTWJTsTSrjuTZlc4jBG25uEHPo0CN1vnpiilkm//ye7Tuaknoup5nmIjLsvyUJW0de5TU0yXQuCGqzR00tatjOYbdTFbVU="
-  - secure: "RPVSmD2E8omJDM1ORwnDWJiTOh25n+1sKh8Hn82yLWfpn6Oso+1m2j4JnHS8kvDbMCvRTgTdwPraz5eqAUcZzURmWj8qxYnEWapWErPoNh9UNQ80zE8TrWPIm/LF0i5VaBvihTRoOtL/y3IwfQGdA2W1KQ41uhyh/CRLzCWhypE="
+  - secure: "JonR5GJedv/SbYQrYAhjFBUsF02GSUq8Fuk0wQRaOY1E/aBxfqLLVp6efaYYG9YMPkklHOu+HWSwVO0X6AeKblEb+4/h8oCUC4Q4KwXTF5xznVp/Bs98hPtqMmYT3XAIe13HeV5hbV4tKMtVYpwm8h4ZVhs1eUpnNpiVgUyWRqE="
+  - secure: "nbOagqTMyLRwN5E3zNuqkuq6IMmHRFKqcWNQauSICzZ629woRhLkofqPeLI9sJNvF13GT6BWJfroE45+juKSgbs27rtRp6/cN90/r+Jv1+STInobowcqJM2HoG2bGQ08Vx/P1PYJQF8X6ai6xFmTEuOhrew95S97ZUmu1adNsq4="
   - secure: "Tye6/rssYfBQp+euo7fnSs7S+/hmCkBT1u0CWzW5R0mHRRpZf5MQRonqHwXrypFtHoZuLlqmJC7woy5T+yuyNZoGNL5r19kSlOWCcFDvDCZD/qghq9DoKN+u9AAoIu7phSNa0ve86NZM91hvad8evkRoIaHM2umjkx8fSmMRjkY="
   - DEPLOY_PATH=/var/www/betahelp/
 node_js:
