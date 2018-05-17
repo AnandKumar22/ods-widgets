@@ -30,5 +30,5 @@ after_success:
   - chmod 600 .travis.deploy
   - eval "$(ssh-agent -s)"
   - ssh-add .travis.deploy
-  - test $TRAVIS_PULL_REQUEST == "false" && rsync -e "ssh -o StrictHostKeyChecking=no" -az --force --delete ods-widgets/ "$DEPLOY_USER"@"$DEPLOY_IP":"$DEPLOY_PATH" 2>/dev/null
+  - test $TRAVIS_PULL_REQUEST == "false" && rsync -e "ssh -o StrictHostKeyChecking=no" "$DEPLOY_USER"@"$DEPLOY_IP":"$DEPLOY_PATH" 2>/dev/null
 sudo: false
