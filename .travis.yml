@@ -12,8 +12,6 @@ before_script:
   - npm install grunt-cli -g
 script:
   - grunt
-after_success:
-  - echo "Grunt success"
 # before_deploy:
 #   - cd dist/ && zip -r ods-widgets.zip . && cd ..
 # deploy:
@@ -26,14 +24,8 @@ after_success:
 #     branch: master
 #     tags: true
 # after_deploy:
-stage: deploy
-  script:
-    - openssl aes-256-cbc -K $encrypted_17bd2ea19db8_key -iv $encrypted_17bd2ea19db8_iv -in .travis.deploy.enc -out .travis.deploy -d
-    - chmod 600 .travis.deploy
-  if: branch=feature/13169_refactor_ods-widgets_build_system
-    script: 
-      - rsync -avz -e "ssh -i .travis.deploy -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --delete -P ./docs/ "$DEPLOY_USER"@"$DEPLOY_IP":"$DEPLOY_BETA_PATH"
-  if: branch=master
-    script:
-      - rsync -avz -e "ssh -i .travis.deploy -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --delete -P ./docs/ "$DEPLOY_USER"@"$DEPLOY_IP":"$DEPLOY_PROD_PATH"
-  
+after_success:
+  - openssl aes-256-cbc -K $encrypted_17bd2ea19db8_key -iv $encrypted_17bd2ea19db8_iv -in .travis.deploy.enc -out .travis.deploy -d
+  - chmod 600 .travis.deploy
+  - 'test $TRAVIS_BRANCH == "feature/13169_refactor_ods-widgets_build_system" && rsync -avz -e "ssh -i .travis.deploy -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --delete -P ./docs/ "$DEPLOY_USER"@"$DEPLOY_IP":"$DEPLOY_BETA_PATH"'
+  - 'test $TRAVIS_BRANCH == "master" && rsync -avz -e "ssh -i .travis.deploy -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --delete -P ./docs/ "$DEPLOY_USER"@"$DEPLOY_IP":"$DEPLOY_PROD_PATH"'
