@@ -11,23 +11,18 @@ before_script:
   - npm install grunt-cli -g
 script:
   - grunt
-after_success:
-  - echo "Grunt build Success | Ready to release"
 before_deploy:
-  - cd dist/ && zip -r ods-widgets.zip .
+  - cd dist/ && zip -r ods-widgets.zip . && cd ..
 deploy:
   provider: releases
   api_key:
     secure: "$API_KEY_GITHUB"
-  file: ods-widgets.zip
+  file: ./dist/ods-widgets.zip
   skip_cleanup: true
   on:
-    branch: feature/13169_refactor_ods-widgets_build_system
+    branch: master
     tags: true
 after_deploy:
-  - echo "New release success | Ready to deploy"
-  - cd ..
   - openssl aes-256-cbc -K $encrypted_17bd2ea19db8_key -iv $encrypted_17bd2ea19db8_iv -in .travis.deploy.enc -out .travis.deploy -d
   - chmod 600 .travis.deploy
   - rsync -avz -e "ssh -i .travis.deploy -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --delete -P ./docs/ "$DEPLOY_USER"@"$DEPLOY_IP":"$DEPLOY_PATH"
-  - echo "Deploy success"
